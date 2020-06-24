@@ -29,6 +29,9 @@ custom:
     createRoute53Record: true
     endpointType: 'edge'
     securityPolicy: tls_1_2
+  wsgi:
+    app: django_sls_helloworld.wsgi.application
+    packRequirements: false
 
 provider:
   name: aws
@@ -69,7 +72,7 @@ provider:
 
 functions:
   hello:
-    handler: handler.hello
+    handler: wsgi_handler.handler
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
