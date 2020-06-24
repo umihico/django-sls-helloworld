@@ -123,3 +123,4 @@ functions:
 
 plugins:
   - serverless-domain-manager
+  - serverless-python-requirements
