@@ -28,7 +28,7 @@ SECRET_KEY = '_8rw1j2-!(qhs+ctc*b25(+7hfua3bm6p_#56^6he5_o8h##)l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["django-sls-helloworld.umihi.co"]
 
 
 # Application definition
