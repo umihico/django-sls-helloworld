@@ -20,6 +20,16 @@ service: django-sls-helloworld
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+custom:
+  customDomain:
+    domainName: django-sls-helloworld.umihi.co
+    certificateName: umihi.co
+    basePath: ''
+    stage: ${opt:stage, self:provider.stage}
+    createRoute53Record: true
+    endpointType: 'edge'
+    securityPolicy: tls_1_2
+
 provider:
   name: aws
   runtime: python3.8
@@ -63,10 +73,9 @@ functions:
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
-#    events:
-#      - http:
-#          path: users/create
-#          method: get
+    events:
+      - http: 'ANY /'
+      - http: 'ANY /{proxy+}'
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
